@@ -11,17 +11,24 @@
 #include <pcmConfig.h>
 #include <SD.h>
 #include <SPI.h>
+#include <Servo.h> 
+
 File m_SDFile;
 #define SD_ChipSelectPin 4
 
 //sound library
 TMRpcm tmrpcm;
+#define SpeakerPin 9
+#define SpeakerVolume 5
+
+Servo m_servo;
+#define ServoPin 7
 
 
 // the setup function runs once when you press reset or power the board
 void setup() {
 
-    tmrpcm.speakerPin = 9; //5,6,11 or 46 on Mega, 9 on Uno, Nano, etc
+    tmrpcm.speakerPin = SpeakerPin;
 
     Serial.begin(9600);
 
@@ -36,7 +43,10 @@ void setup() {
         return;
     }
 
-    tmrpcm.setVolume(5); //
+    tmrpcm.setVolume(SpeakerVolume);
+
+    m_servo.attach(ServoPin);
+    
      
 }
 
@@ -45,5 +55,7 @@ void loop() {
 
 
     tmrpcm.play("song1.wav");
-  
+    m_servo.write(90);
+
+
 }
