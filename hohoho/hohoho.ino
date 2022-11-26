@@ -21,8 +21,8 @@ TMRpcm tmrpcm;
 #define SpeakerPin 9
 #define SpeakerVolume 5
 
-Servo m_servo;
-#define ServoPin 7
+//Servo m_servo;
+//#define ServoPin 7
 
 
 // the setup function runs once when you press reset or power the board
@@ -31,6 +31,8 @@ void setup() {
     tmrpcm.speakerPin = SpeakerPin;
 
     Serial.begin(9600);
+
+    //pinMode(SD_ChipSelectPin, OUTPUT);
 
     // SD Card Initialization
     if (SD.begin(SD_ChipSelectPin))
@@ -43,19 +45,20 @@ void setup() {
         return;
     }
 
-    tmrpcm.setVolume(SpeakerVolume);
+    //tmrpcm.volume(0);
+    tmrpcm.setVolume(6);
 
-    m_servo.attach(ServoPin);
+    //m_servo.attach(ServoPin);
     
-     
+    tmrpcm.play("hohoho.wav");
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() {
 
 
-    tmrpcm.play("song1.wav");
-    m_servo.write(90);
+    
+    //m_servo.write(90);
 
 
 }
