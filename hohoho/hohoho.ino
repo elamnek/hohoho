@@ -14,6 +14,7 @@
 //
 
 #ifndef USE_SOFTWARESERIAL
+#include <Servo.h>
 #include <arduino-timer.h>
 #define USE_SOFTWARESERIAL 1   ///< Set to 1 to use SoftwareSerial library, 0 for native serial port
 #endif
@@ -34,14 +35,21 @@ SoftwareSerial  MP3Stream(ARDUINO_RX, ARDUINO_TX);  // MP3 player serial stream 
 //#define Console   Serial   // command processor input/output stream
 #endif
 
-auto timer5Hz = timer_create_default();
+auto timerHoHoHo = timer_create_default();
 
 const uint8_t PLAY_FOLDER = 1;   // tracks are all placed in this folder
 MD_YX5300 mp3(MP3Stream);
 
+int m_intServoPin = 5;
+Servo m_servo;
+
 void setup()
 {
-    timer5Hz.every(5000, timer5Hz_interrupt);
+
+    m_servo.attach(m_intServoPin);
+    m_servo.write(90);
+
+    timerHoHoHo.every(15000, timerHoHoHo_interrupt);
 
     MP3Stream.begin(MD_YX5300::SERIAL_BPS);
     mp3.begin();
@@ -52,17 +60,21 @@ void setup()
  
 }
 
-bool timer5Hz_interrupt(void*) {
+bool timerHoHoHo_interrupt(void*) {
 
-    mp3.playTrack(3);
+    mp3.playTrack(4);
     Serial.println("timer hit");
+
+    m_servo.write(45);
+    delay(400);
+    m_servo.write(90);
 
     return true;
 }
 
 void loop()
 {
-    timer5Hz.tick();
+    timerHoHoHo.tick();
     mp3.check();    
 }
 
