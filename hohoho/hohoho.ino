@@ -64,10 +64,14 @@ bool timerHoHoHo_interrupt(void*) {
 
     mp3.playTrack(4);
     Serial.println("timer hit");
+    delay(40);
 
-    m_servo.write(45);
-    delay(400);
-    m_servo.write(90);
+    for (int i = 1; i < 9; i++) {
+        m_servo.write(45);
+        delay(400);
+        m_servo.write(90);
+        delay(400);
+    }
 
     return true;
 }
