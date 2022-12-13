@@ -43,6 +43,11 @@ MD_YX5300 mp3(MP3Stream);
 int m_intServoPin = 5;
 Servo m_servo;
 
+static int m_arraySoundID[13] = { 1,1,1,1,1,1,1,1,1,1,1,2,2};
+static long m_arrayData[13] = { 300,550,1000,1440,2250,2710,3060,3440,3900,4300,4800,60,1440};
+int intThisID = 1;
+
+
 void setup()
 {
 
@@ -64,14 +69,19 @@ bool timerHoHoHo_interrupt(void*) {
 
     mp3.playTrack(4);
     Serial.println("timer hit");
-    delay(40);
-
-    for (int i = 1; i < 9; i++) {
-        m_servo.write(45);
-        delay(400);
-        m_servo.write(90);
-        delay(400);
+    
+    delay(m_arrayBurp[0]);
+    for (int i = 0; i < 13; i++) {
+        
+        long lngOpenTime = (m_arrayBurp[i] - m_arrayBurp[i - 1]) / 2;
+        
+        m_servo.write(50); //open 
+        delay(lngOpenTime);
+        m_servo.write(90); //close
+        delay(lngOpenTime);
     }
+
+    intThisID = intThisID + 1;
 
     return true;
 }
