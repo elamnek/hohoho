@@ -83,7 +83,7 @@ bool timerMinute_interrupt(void*) {
             //hohoho
             long arrayData[11] = { 300,550,1000,1440,2250,2710,3060,3440,3900,4300,4800 };
             delay(arrayData[0]);
-            for (int i = 0; i < 11; i++) {
+            for (int i = 1; i < 11; i++) {
                 long lngOpenTime = (arrayData[i] - arrayData[i - 1]) / 2;
                 m_servo.write(60); //open 
                 delay(lngOpenTime);
