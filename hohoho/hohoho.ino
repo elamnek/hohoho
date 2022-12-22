@@ -85,7 +85,7 @@ bool timerMinute_interrupt(void*) {
             delay(arrayData[0]);
             for (int i = 1; i < 11; i++) {
                 long lngOpenTime = (arrayData[i] - arrayData[i - 1]) / 2;
-                m_servo.write(60); //open 
+                m_servo.write(120); //open 
                 delay(lngOpenTime);
                 m_servo.write(90); //close
                 delay(lngOpenTime);
@@ -96,7 +96,7 @@ bool timerMinute_interrupt(void*) {
             //burp
             //long arrayData[2] = { 60,1440 };
             delay(60);
-            m_servo.write(40); //open
+            m_servo.write(120); //open
             delay(1380);
             m_servo.write(90); //close
         }
