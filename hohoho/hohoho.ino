@@ -61,7 +61,7 @@ void setup()
     mp3.volume(30);
 
     m_lngRandomMinutes = random(1, 2);//always play sound in the first minute when starting up
-    m_lngRandomSound = random(4, 6);//two tracks to play (tracks 4 and 5)
+    m_lngRandomSound = 5;//random(4, 6);//two tracks to play (tracks 4 and 5)
   
 }
 
@@ -85,7 +85,7 @@ bool timerMinute_interrupt(void*) {
             delay(arrayData[0]);
             for (int i = 1; i < 11; i++) {
                 long lngOpenTime = (arrayData[i] - arrayData[i - 1]) / 2;
-                m_servo.write(120); //open 
+                m_servo.write(125); //open 
                 delay(lngOpenTime);
                 m_servo.write(90); //close
                 delay(lngOpenTime);
@@ -96,14 +96,22 @@ bool timerMinute_interrupt(void*) {
             //burp
             //long arrayData[2] = { 60,1440 };
             delay(60);
-            m_servo.write(120); //open
+            m_servo.write(125); //open
             delay(1380);
             m_servo.write(90); //close
         }
 
         //reset random numbers
         m_lngRandomMinutes = random(1, 2);
-        m_lngRandomSound = random(4, 6);
+        if (m_lngRandomSound == 5) {
+            m_lngRandomSound = 4;
+        }
+        else {
+            m_lngRandomSound = 5;
+        }
+        
+        
+        //random(4, 6);
         m_lngMinuteCounter = 0;
         
     }
