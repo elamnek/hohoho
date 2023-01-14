@@ -17,4 +17,4 @@ Here is a photo of the setup:
 
 ![IMG20230114151128](https://user-images.githubusercontent.com/25494253/212456248-05d216f0-cd94-4cab-a459-d6d0b9cd6d9d.jpg)
 
- 
+I use Visual Studio for coding with Arduino (using the vMicro addin) but if you want to use the Arduino IDE just download the hohoho.ino file and make sure you have the required libraries installed as well.
