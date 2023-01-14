@@ -7,7 +7,7 @@ A fun little project to animate a skeleton jaw in sync with audio files (in this
 ![image](https://user-images.githubusercontent.com/25494253/212456855-65f0a4e9-69e5-4fcd-92f9-1c16e966bdc1.png)
 
 
-Here is the outcome:
+Here is the outcome (make sure you turn the sound on):
 
 https://user-images.githubusercontent.com/25494253/212453545-23ddd6fe-1c43-49a9-974a-9271c8d2dbdb.mp4
 
