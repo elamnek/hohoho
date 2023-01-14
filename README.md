@@ -2,7 +2,7 @@
 
 
 
-A fun little project to animate a skeleton jaw in sync with audio files (in this case a Merry Christmas greeting, and a surprise burp). I set this up at my local Pilates studio to surprise the clients as they did their classes. The skeleton talks at random times (this can be configured in the code). The skeletons jaw can be made to move in sync with pretty much any sound, but it takes a bit of experimentation to get it right. I loaded the sound files into Clip Champ which provides a sound graph with time along the x-axis. Using the graph you can work out roughtly when each sylable starts and then use the times derived in an array (see code for the examples of this).
+A fun little project to animate a skeleton jaw in sync with audio files (in this case a Merry Christmas greeting, and a surprise burp). I set this up at my local Pilates studio to surprise the clients as they did their classes. The skeleton talks at random times (this can be configured in the code). The skeletons jaw can be made to move in sync with pretty much any sound, but it takes a bit of experimentation to get it right. I loaded the sound files into Clip Champ which provides a sound graph with time along the x-axis. Using the graph you can work out roughtly when each sylable starts and then use the times derived in an array (see code for the examples of this). The mp3 player has an SD card reader that stores the sound files that are used within the code.
 
 ![image](https://user-images.githubusercontent.com/25494253/212457085-b9e15180-70c0-4d02-ae6d-4e11d8f750db.png)
 
